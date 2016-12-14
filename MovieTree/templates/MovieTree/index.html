@@ -1,0 +1,58 @@
+{% load static %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <link href={% static "MovieTree/css/bootstrap.min.css" %} rel="stylesheet">
+    <link href={% static "MovieTree/css/animate.min.css" %} rel="stylesheet">
+    <link href={% static "MovieTree/css/font-awesome.min.css" %} rel="stylesheet">
+    <!--main.css set the font of the header-->
+    <link href={% static "MovieTree/css/main.css" %} rel="stylesheet">
+    <link id="css-preset" href={% static "MovieTree/css/presets/preset1.css" %} rel="stylesheet">
+    <link href={% static "MovieTree/css/responsive.css" %} rel="stylesheet">
+
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href={% static "MovieTree/images/favicon.ico" %}>
+
+
+    <!-- override the bootstrap style -->
+    <link href={% static "MovieTree/css/mystyle.css" %} rel="stylesheet">
+
+</head>
+{# press enter to start #}
+<body onkeydown="startSurvey(event)">
+<script type="text/javascript" src={% static "MovieTree/js/jquery.js" %}></script>
+<script type="text/javascript" src={% static "MovieTree/js/bootstrap.min.js" %}></script>
+<script type="text/javascript" src={% static "MovieTree/js/jquery.inview.min.js" %}></script>
+<script type="text/javascript" src={% static "MovieTree/js/wow.min.js" %}></script>
+<script type="text/javascript" src={% static "MovieTree/js/mousescroll.js" %}></script>
+<script type="text/javascript" src={% static "MovieTree/js/smoothscroll.js" %}></script>
+<script type="text/javascript" src={% static "MovieTree/js/jquery.countTo.js" %}></script>
+<script type="text/javascript" src={% static "MovieTree/js/main.js" %}></script>
+<script type="text/javascript" src={% static "MovieTree/js/fileSaver.js" %}></script>
+<script type="text/javascript" src={% static "MovieTree/js/indexpage.js" %}></script>
+
+<header id="home">
+    <div id="home-slider" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner" interval="false">
+            <div class="item active" style="background-image: url({% static "MovieTree/images/main-bg.jpg" %})">
+                <div class="caption">
+                    <h1 class="middle-header animated fadeInLeftBig">Get to know <span
+                            class="netflix-red">yourself</span></h1>
+                    <p class="animated fadeInRightBig">What kind of movies do you like?</p>
+                    <a id="start-button" data-scroll class="btn btn-start animated fadeInUpBig" href="/view_question_1?">Start
+                        now</a>
+                </div>
+            </div>
+
+    </div><!--/#home-slider-->
+</header>
+
+
+</body>
+</html>

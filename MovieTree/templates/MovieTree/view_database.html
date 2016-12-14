@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Database view</title>
+
+    <h1>Survey List</h1>
+
+    <ul>
+        {% for survey in survey_list %}
+            <li>id = {{ survey.pk }}</li>
+            <li>question_asked = {{ survey.question_asked }}</li>
+            <li>answer_given = {{ survey.answer_given }}</li>
+            <br>
+    {% endfor %}
+    </ul>
+
+    <h1>Question List</h1>
+
+    <ul>
+        {% for question in question_list %}
+            <li>id = {{ question.pk }}</li>
+            <li>question = {{ question.question_text }}</li>
+            <br>
+    {% endfor %}
+    </ul>
+
+</head>
+<body>
+
+</body>
+</html>

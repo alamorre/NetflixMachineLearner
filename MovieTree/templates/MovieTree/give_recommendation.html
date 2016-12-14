@@ -1,0 +1,78 @@
+{% load static %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Give Recommendation</title>
+
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <link href={% static "MovieTree/css/bootstrap.min.css" %} rel="stylesheet">
+    <link href={% static "MovieTree/css/animate.min.css" %} rel="stylesheet">
+    <link href={% static "MovieTree/css/font-awesome.min.css" %} rel="stylesheet">
+    <!--main.css set the font of the header-->
+    <link href={% static "MovieTree/css/main.css" %} rel="stylesheet">
+    <link id="css-preset" href={% static "MovieTree/css/presets/preset1.css" %} rel="stylesheet">
+    <link href={% static "MovieTree/css/responsive.css" %} rel="stylesheet">
+
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href={% static "MovieTree/images/favicon.ico" %}>
+
+
+    <!-- override the bootstrap style -->
+    <link href={% static "MovieTree/css/mystyle.css" %} rel="stylesheet">
+
+</head>
+<body id="recommendation-page">
+<script type="text/javascript" src={% static "MovieTree/js/jquery.js" %}></script>
+<script type="text/javascript" src={% static "MovieTree/js/bootstrap.min.js" %}></script>
+<script type="text/javascript" src={% static "MovieTree/js/jquery.inview.min.js" %}></script>
+<script type="text/javascript" src={% static "MovieTree/js/wow.min.js" %}></script>
+<script type="text/javascript" src={% static "MovieTree/js/mousescroll.js" %}></script>
+<script type="text/javascript" src={% static "MovieTree/js/smoothscroll.js" %}></script>
+<script type="text/javascript" src={% static "MovieTree/js/jquery.countTo.js" %}></script>
+<script type="text/javascript" src={% static "MovieTree/js/main.js" %}></script>
+<script type="text/javascript" src={% static "MovieTree/js/fileSaver.js" %}></script>
+<script type="text/javascript" src={% static "MovieTree/js/howler.min.js" %}></script>
+<script type="text/javascript" src={% static "MovieTree/js/recommendation.sound.js" %}></script>
+
+<header id="home">
+    <div id="home-slider" class="carousel slide carousel-fade" data-ride="carousel">
+        <!-- interval="false" to prevent cycling -->
+        <div class="carousel-inner" interval="false">
+            <div class="item active" style="background-image: url({% static "MovieTree/images/main-bg.jpg" %})">
+                <div class="caption">
+                    <h1 class="middle-header animated fadeInLeftBig recommendation-header"><span>Recommendation</span>
+                    </h1>
+                    <p class="animated fadeInRightBig">Do you like them?</p>
+                    <div class="recommendation-area">
+                        <div class="recommendation-imgbox animated fadeInUpBig">
+                            <img class="recommendation-img" src="{{ movie_first_image }}" alt="movie_first_image">
+                            <p>{{ movie_first_title }}</p>
+                        </div>
+                        <div class="recommendation-imgbox animated fadeInUpBig">
+                            <img class="recommendation-img" src="{{ movie_second_image }}" alt="movie_first_image">
+                            <p>{{ movie_second_title }}</p>
+                        </div>
+                        <div class="recommendation-imgbox animated fadeInUpBig">
+                            <img class="recommendation-img" src="{{ movie_third_image }}" alt="movie_first_image">
+                            <p>{{ movie_third_title }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--<a class="left-control" href="#home-slider" data-slide="prev"><i class="fa fa-angle-left"></i></a>-->
+        <!--<a class="right-control" href="#home-slider" data-slide="next"><i class="fa fa-angle-right"></i></a>-->
+        <!--<a id="tohash" href="#survey"><i class="fa fa-angle-down"></i></a>-->
+    </div><!--/#home-slider-->
+</header><!--/#home-->
+
+
+
+</body>
+</html>

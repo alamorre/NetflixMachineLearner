@@ -1,0 +1,37 @@
+[
+  {
+    "model": "MovieTree.Question",
+    "fields": {
+      "question_text": "Do you like action movies?",
+      "question_keyword": "action"
+    }
+  },
+  {
+    "model": "MovieTree.Question",
+    "fields": {
+      "question_text": "Do you like comedy movies?",
+      "question_keyword": "comedy"
+    }
+  },
+  {
+    "model": "MovieTree.Question",
+    "fields": {
+      "question_text": "Do you like drama movies?",
+      "question_keyword": "drama"
+    }
+  },
+  {
+    "model": "MovieTree.Question",
+    "fields": {
+      "question_text": "Do you like romance movies?",
+      "question_keyword": "romance"
+    }
+  },
+  {
+    "model": "MovieTree.Question",
+    "fields": {
+      "question_text": "Do you like thriller movies?",
+      "question_keyword": "thriller"
+    }
+  }
+]

@@ -1,0 +1,98 @@
+{% load static %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>view_survey</title>
+
+    <link href={% static "MovieTree/css/bootstrap.min.css" %} rel="stylesheet">
+    <link href={% static "MovieTree/css/animate.min.css" %} rel="stylesheet">
+    <link href={% static "MovieTree/css/font-awesome.min.css" %} rel="stylesheet">
+    <!--main.css set the font of the header-->
+    <link href={% static "MovieTree/css/main.css" %} rel="stylesheet">
+    <link id="css-preset" href={% static "MovieTree/css/presets/preset1.css" %} rel="stylesheet">
+    <link href={% static "MovieTree/css/responsive.css" %} rel="stylesheet">
+
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href={% static "MovieTree/images/favicon.ico" %}>
+
+
+    <!-- override the bootstrap style -->
+    <link href={% static "MovieTree/css/mystyle.css" %} rel="stylesheet">
+
+    <script type="text/javascript" src={% static "MovieTree/js/survey.js" %}></script>
+</head>
+<body id="survey-page">
+
+<script type="text/javascript" src={% static "MovieTree/js/jquery.js" %}></script>
+<script type="text/javascript" src={% static "MovieTree/js/bootstrap.min.js" %}></script>
+<script type="text/javascript" src={% static "MovieTree/js/jquery.inview.min.js" %}></script>
+<script type="text/javascript" src={% static "MovieTree/js/wow.min.js" %}></script>
+<script type="text/javascript" src={% static "MovieTree/js/mousescroll.js" %}></script>
+<script type="text/javascript" src={% static "MovieTree/js/smoothscroll.js" %}></script>
+<script type="text/javascript" src={% static "MovieTree/js/jquery.countTo.js" %}></script>
+<script type="text/javascript" src={% static "MovieTree/js/main.js" %}></script>
+<script type="text/javascript" src={% static "MovieTree/js/fileSaver.js" %}></script>
+<script type="text/javascript" src={% static "MovieTree/js/questionHandler.js" %}></script>
+
+<header id="home">
+    <div id="home-slider" class="carousel slide carousel-fade" data-ride="carousel">
+        <!-- interval="false" to prevent cycling -->
+        <div class="carousel-inner" interval="false">
+            <div class="item active" style="background-image: url({% static "MovieTree/images/main-bg.jpg" %})">
+                <div class="caption">
+                    <form action="add_survey" method="post">
+                        {% csrf_token %}
+
+                        <input type="hidden" name="current_question" value="{{ question.pk }}">
+                        <script>
+
+                            askQuesititon("{{ question.pk }}");
+
+                        </script>
+
+                        <h1 class="question animated fadeInLeftBig">{{ question.question_text }}</h1>
+
+                        <div class="answer question-animation">
+                            <input name="answer_given" type="submit" value="1" style="font-size: 19px;"
+                                   class="btn btn-start rating-button animated fadeInRightBig">
+                            </input>
+                            <input name="answer_given" type="submit" value="2" style="font-size: 19px;"
+                                   class="btn btn-start rating-button animated fadeInRightBig">
+                            </input>
+                            <input name="answer_given" type="submit" value="3" style="font-size: 19px;"
+                                   class="btn btn-start rating-button animated fadeInRightBig">
+                            </input>
+                            <input name="answer_given" type="submit" value="4" style="font-size: 19px;"
+                                   class="btn btn-start rating-button animated fadeInRightBig">
+                            </input>
+                            <input name="answer_given" type="submit" value="5" style="font-size: 19px;"
+                                   class="btn btn-start rating-button animated fadeInRightBig">
+                            </input>
+                        </div>
+
+                    </form>
+                    {# TODO: can you handle the submited text data in backend for language proceesing via my python program #}
+                    {# TODO: after processing the text, you'll get a number ranging from 0 to 100, can you rescale it within 1 - 5 and submit it as the answer of current question and then jump to next question #}
+                    <form action="process_text" method="post">
+                        <div class="textanswer-area">
+                            <textarea id="ans-textarea" rows="5" placeholder="Got some idea? Tell us and press ENTER" value="" maxlength="150"
+                                      onkeydown="pressed(event)" class="answerbox animated fadeInUpBig"></textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!--<a class="left-control" href="#home-slider" data-slide="prev"><i class="fa fa-angle-left"></i></a>-->
+        <!--<a class="right-control" href="#home-slider" data-slide="next"><i class="fa fa-angle-right"></i></a>-->
+        <!--<a id="tohash" href="#survey"><i class="fa fa-angle-down"></i></a>-->
+    </div><!--/#home-slider-->
+</header><!--/#home-->
+
+
+</body>
+</html>
